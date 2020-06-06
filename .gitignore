@@ -16,3 +16,4 @@ out/
 
 .idea_modules/
 *.iws
+*.class
