@@ -8,41 +8,7 @@ public class Lector {
     public String simbolo;
     public static final String SALIR = "Q";
 
-
-
     public Lector(){}
-
-    /*public boolean leerDigitoRomano(){
-        boolean respuesta = false;
-        boolean salir = false;
-
-        do {
-            String entrada = scan.nextLine();
-
-            if (entrada.length() > 1) {
-                this.simbolo = 'E';
-                System.out.println("Error. Digita un sólo caracter.");
-            } else if (entrada.length() == 0) {
-                System.out.println("ERR1: No se digitó ningún símbolo. ");
-            } else {
-                this.simbolo = entrada.toUpperCase().charAt(0);
-                if (simbolosEntrada.contains(String.valueOf(this.simbolo))) {
-                    System.out.println("BIEN: " + this.simbolo);
-                    respuesta = true;
-                } else if (this.simbolo != SALIR) {
-                    System.out.println("Error. " + this.simbolo + " no está dentro de los siguientes: " + simbolosEntrada.toString() +
-                            ". Inténtalo nuevamente. ");
-                }else{
-                    respuesta=true;
-                    salir = true;
-
-                }
-            }
-        }while (!respuesta);
-
-        return salir;
-
-    }*/
 
     public List<String> leerRomano(){
         System.out.println("Escriba el número romano. Puede usar los siguientes símbolos: "+
