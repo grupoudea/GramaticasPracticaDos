@@ -10,18 +10,24 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+        System.out.println("Realizar una aplicación de software que reconozca números romanos " +
+                "con los símbolos I, V, X, L, en caso contrario que muestre los errores que contiene y " +
+                "realizar un manejo de ellos. ");
         inicio();
     }
 
     public static void inicio(){
-do {
-    List<String> romano = lector.leerRomano();
-    noTerminales = new NoTerminales(romano);
-    noTerminales.ntR(romano.remove(0));
+        boolean salirPrograma;
+        do {
+            salirPrograma =true;
+            List<String> romano = lector.leerRomano();
+            if(romano.size()>=1&&!(lector.getSALIR().equalsIgnoreCase(romano.get(0)))){
+                noTerminales = new NoTerminales(romano);
+                noTerminales.ntR(romano.remove(0));
+                salirPrograma= false;
+            }
 
-}while(true);
-
-
+        }while(!salirPrograma);
     }
 
 

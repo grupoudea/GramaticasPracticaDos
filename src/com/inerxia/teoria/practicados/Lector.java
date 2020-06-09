@@ -6,6 +6,7 @@ public class Lector {
     public Scanner scan = new Scanner(System.in);
     public List<String> simbolosEntrada = Arrays.asList("I", "V", "X", "L");
     public String simbolo;
+    public static final String SALIR = "Q";
 
 
 
@@ -45,20 +46,26 @@ public class Lector {
 
     public List<String> leerRomano(){
         System.out.println("Escriba el número romano. Puede usar los siguientes símbolos: "+
-                this.getSimbolosEntrada());
+                this.getSimbolosEntrada()+"\nPara salir escriba la letra q.");
         boolean hileraCorrecta;
         List<String> simbolos = null;
         do{
             hileraCorrecta = true;
             this.simbolo = scan.nextLine().toUpperCase();
             if(!this.simbolo.isEmpty()){
-                simbolos = new LinkedList<>(Arrays.asList(this.simbolo.split("")));
-                for (String item : simbolos) {
-                    if (!this.simbolosEntrada.contains(item)) {
-                        System.out.println("Error. Hilera incorrecta");
-                        hileraCorrecta = false;
-                        break;
+                if(!SALIR.equalsIgnoreCase(this.simbolo)){
+                    simbolos = new LinkedList<>(Arrays.asList(this.simbolo.split("")));
+                    for (String item : simbolos) {
+                        if (!this.simbolosEntrada.contains(item)) {
+                            System.out.println("Error. Simbolos de entrada incorrectos");
+                            hileraCorrecta = false;
+                            break;
+                        }
                     }
+                }else{
+                    simbolos = new LinkedList<>();
+                    System.out.println("Saliendo...");
+                    simbolos.add(SALIR);
                 }
             }else{
                 System.out.println("ERR1: No se digitó ningún símbolo.");
@@ -78,4 +85,7 @@ public class Lector {
         return simbolosEntrada;
     }
 
+    public static String getSALIR() {
+        return SALIR;
+    }
 }
